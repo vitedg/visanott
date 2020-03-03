@@ -1,0 +1,192 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+{% extends 'base.html.twig' %}
+{% block nav %}
+				
+				<li>
+                    <a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Liste des annomalies réafectées à mon entité</span></a>
+                </li>
+				<li>
+                    <a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Liste des annomalies réafectées par mon entité</span></a>
+                </li>
+								<li>
+                    <a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Controle des imports EDINOO</span></a>
+                </li>
+								<li>
+                    <a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Modifier mes informations</span></a>
+                </li>
+{% endblock %}
+{% block content %}
+<div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox">
+
+
+
+                                <table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Type d'annomalie</th>
+      <th scope="col">Non traitées</th>
+      <th scope="col">Mes annomalies</th>
+      <th scope="col">Historique</th>
+	  <th scope="col">Taux de résolution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">FACT_XA309</th>
+      <td class="orange-color">Voir(17)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+    <tr>
+      <th scope="row">DC_NON_AFFECT_RG</th>
+      <td class="orange-color">Voir(5)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+    <tr>
+      <th scope="row">DC_NON_AFFECT_RPV</th>
+      <td>0</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+	    <tr>
+      <th scope="row">ANO_IP_FE</th>
+      <td class="orange-color">Voir (22)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+	    <tr>
+      <th scope="row">FACT_CT344</th>
+      <td>0</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+		    <tr>
+      <th scope="row">FACT_CT348</th>
+      <td class="orange-color">Voir(5)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+		    <tr>
+      <th scope="row">FACT_CT361</th>
+      <td class="orange-color">Voir(5)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+		    <tr>
+      <th scope="row">FACT_CT364</th>
+      <td>0</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+			    <tr>
+      <th scope="row">FACT_NPET A2</th>
+      <td class="orange-color">Voir(5)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+			    <tr>
+      <th scope="row">MIG_021</th>
+      <td class="orange-color">Voir(5)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+			    <tr>
+      <th scope="row">MIG_029</th>
+      <td>0</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+				    <tr>
+      <th scope="row">MIG_CAN</th>
+      <td>0</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+				    <tr>
+      <th scope="row">ANN_GESANOF</th>
+      <td>0</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+					    <tr>
+      <th scope="row">ANN_REJETS</th>
+      <td class="orange-color">Voir(5)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+						    <tr>
+      <th scope="row">ANN_IG</th>
+      <td class="orange-color">Voir(5)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+						    <tr>
+      <th scope="row">INST_CFETASUP</th>
+      <td class="orange-color">Voir(5)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+							    <tr>
+      <th scope="row">INST_SIRETDIF</th>
+      <td class="orange-color">Voir(5)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+								    <tr>
+      <th scope="row">INST_FRNONLIE</th>
+      <td class="orange-color">Voir(5)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+								    <tr>
+      <th scope="row">INST_CLIPpena</th>
+      <td class="orange-color">Voir(5)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+	<tr>
+	      <th scope="row">INST_CLIPMARINE</th>
+      <td class="orange-color">Voir(5)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+	<tr>
+		      <th scope="row">INST_ALLEGRO</th>
+      <td class="orange-color">Voir(5)</td>
+      <td>0</td>
+      <td class="orange-color">Historique(0/115)</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+  </tbody>
+</table>
+                            </div>
+                        </div>
+                    </div>
+
+
+{% endblock %}
