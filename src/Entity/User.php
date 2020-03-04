@@ -35,6 +35,12 @@ class User extends BaseUser
      */
     private $role;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Profil", inversedBy="users")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $profil;
+
     public function __construct()
     {
         parent::__construct();
@@ -73,6 +79,18 @@ class User extends BaseUser
     public function setRole(?Role $role): self
     {
         $this->role = $role;
+
+        return $this;
+    }
+
+    public function getProfil(): ?Profil
+    {
+        return $this->profil;
+    }
+
+    public function setProfil(?Profil $profil): self
+    {
+        $this->profil = $profil;
 
         return $this;
     }
