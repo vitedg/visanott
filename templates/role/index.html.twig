@@ -1,2 +1,57 @@
 {# templates/task/new.html.twig #}
+{% extends 'base.html.twig' %}
+{% block nav %}
+
+<li class="">
+						<a href="index.html" aria-expanded="false"><i class="fa fa-th-large"></i> <span class="nav-label">Gestion des agences</span> <span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+								<li><a href="index.html">Liste des agences</a></li>
+								<li><a href="dashboard_2.html">Liste des agences bloquées</a></li>
+								<li><a href="{{ path('add_agence') }}">Ajouter une agence</a></li>
+						</ul>
+				</li>
+				<li class="">
+						<a href="index.html" aria-expanded="false"><i class="fa fa-th-large"></i> <span class="nav-label">Gestion des pilotes</span> <span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+								<li><a href="index.html">Liste des pilotes</a></li>
+								<li><a href="dashboard_2.html">Liste des pilotes bloquées</a></li>
+								<li><a href="dashboard_3.html">Ajouter une pilote</a></li>
+		<li><a href="dashboard_3.html">Mise à jour des pilotes</a></li>
+						</ul>
+				</li>
+<li class="">
+						<a href="index.html" aria-expanded="false"><i class="fa fa-th-large"></i> <span class="nav-label">Gestion des direction</span> <span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+								<li><a href="index.html">Liste des directions</a></li>
+								<li><a href="{{ path('add_direction') }}">Ajouter une direction</a></li>
+						</ul>
+				</li>
+								<li class="">
+						<a href="index.html" aria-expanded="false"><i class="fa fa-th-large"></i> <span class="nav-label">Gestion des utilisateurs</span> <span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+								<li><a href="index.html">Liste des utilisateurs</a></li>
+								<li><a href="dashboard_2.html">Liste des utilisateurs sans profil</a></li>
+								<li><a href="{{ path('fos_user_registration_register') }}">Ajouter une utilisateur</a></li>
+						</ul>
+				</li>
+<li class="">
+						<a href="index.html" aria-expanded="false"><i class="fa fa-th-large"></i> <span class="nav-label">Gestion des profils</span> <span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+								<li><a href="index.html">Liste des profils</a></li>
+								<li><a href="{{ path('add_profil_parent') }}">Ajouter un nouveau profil chef</a></li>
+								<li><a href="{{ path('add_profil_children') }}">Ajouter un nouveau profil agent</a></li>
+						</ul>
+				</li>
+<li>
+						<a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Extraction des données brutes</span></a>
+				</li>
+<li>
+						<a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Extraction en HNO</span></a>
+				</li>
+				<li>
+						<a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Teléchargements résultat HNO</span></a>
+				</li>
+{% endblock %}
+{% block content %}
 {{ form(form) }}
+{% endblock %}
