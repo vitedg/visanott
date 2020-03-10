@@ -3,21 +3,256 @@
 
 {% extends 'base.html.twig' %}
 {% block nav %}
-				
+{% if admin_national == true %}
+<li class="">
+						<a href="index.html" aria-expanded="false"><i class="fa fa-th-large"></i> <span class="nav-label">Gestion des agences</span> <span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+								<li><a href="index.html">Liste des agences</a></li>
+								<li><a href="dashboard_2.html">Liste des agences bloquées</a></li>
+								<li><a href="{{ path('add_agence') }}">Ajouter une agence</a></li>
+						</ul>
+				</li>
+				<li class="">
+						<a href="index.html" aria-expanded="false"><i class="fa fa-th-large"></i> <span class="nav-label">Gestion des pilotes</span> <span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+								<li><a href="index.html">Liste des pilotes</a></li>
+								<li><a href="dashboard_2.html">Liste des pilotes bloquées</a></li>
+								<li><a href="dashboard_3.html">Ajouter une pilote</a></li>
+		<li><a href="dashboard_3.html">Mise à jour des pilotes</a></li>
+						</ul>
+				</li>
+<li class="">
+						<a href="index.html" aria-expanded="false"><i class="fa fa-th-large"></i> <span class="nav-label">Gestion des direction</span> <span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+								<li><a href="index.html">Liste des directions</a></li>
+								<li><a href="{{ path('add_direction') }}">Ajouter une direction</a></li>
+						</ul>
+				</li>
+								<li class="">
+						<a href="index.html" aria-expanded="false"><i class="fa fa-th-large"></i> <span class="nav-label">Gestion des utilisateurs</span> <span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+								<li><a href="index.html">Liste des utilisateurs</a></li>
+								<li><a href="dashboard_2.html">Liste des utilisateurs sans profil</a></li>
+								<li><a href="{{ path('fos_user_registration_register') }}">Ajouter une utilisateur</a></li>
+						</ul>
+				</li>
+<li class="">
+						<a href="index.html" aria-expanded="false"><i class="fa fa-th-large"></i> <span class="nav-label">Gestion des profils</span> <span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+								<li><a href="index.html">Liste des profils</a></li>
+								<li><a href="{{ path('add_profil_parent') }}">Ajouter un nouveau profil chef</a></li>
+								<li><a href="{{ path('add_profil_children') }}">Ajouter un nouveau profil agent</a></li>
+						</ul>
+				</li>
+<li>
+						<a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Extraction des données brutes</span></a>
+				</li>
+<li>
+						<a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Extraction en HNO</span></a>
+				</li>
 				<li>
-                    <a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Liste des annomalies réafectées à mon entité</span></a>
-                </li>
+						<a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Teléchargements résultat HNO</span></a>
+				</li>
+{% endif %}
+{% if admin_national == false %}
+
+
 				<li>
-                    <a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Liste des annomalies réafectées par mon entité</span></a>
-                </li>
+										<a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Liste des annomalies réafectées à mon entité</span></a>
+								</li>
+				<li>
+										<a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Liste des annomalies réafectées par mon entité</span></a>
+								</li>
 								<li>
-                    <a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Controle des imports EDINOO</span></a>
-                </li>
+										<a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Controle des imports EDINOO</span></a>
+								</li>
 								<li>
-                    <a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Modifier mes informations</span></a>
-                </li>
+										<a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Modifier mes informations</span></a>
+								</li>
+{% endif %}
 {% endblock %}
 {% block content %}
+{% if admin_national == true %}
+
+<div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox">
+
+
+
+                                <table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Type d'annomalie</th>
+      <th scope="col">Non traitées</th>
+      <th scope="col">En cours</th>
+      <th scope="col">Historique</th>
+	  <th scope="col">Taux de résolution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">FACT_XA309</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+    <tr>
+      <th scope="row">DC_NON_AFFECT_RG</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+    <tr>
+      <th scope="row">DC_NON_AFFECT_RPV</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+	    <tr>
+      <th scope="row">ANO_IP_FE</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+	    <tr>
+      <th scope="row">FACT_CT344</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+		    <tr>
+      <th scope="row">FACT_CT348</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+		    <tr>
+      <th scope="row">FACT_CT361</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+		    <tr>
+      <th scope="row">FACT_CT364</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+			    <tr>
+      <th scope="row">FACT_NPET A2</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+			    <tr>
+      <th scope="row">MIG_021</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+			    <tr>
+      <th scope="row">MIG_029</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+				    <tr>
+      <th scope="row">MIG_CAN</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+				    <tr>
+      <th scope="row">ANN_GESANOF</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+					    <tr>
+      <th scope="row">ANN_REJETS</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">82,1</td>
+    </tr>
+						    <tr>
+      <th scope="row">ANN_IG</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+						    <tr>
+      <th scope="row">INST_CFETASUP</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">83,4</td>
+    </tr>
+							    <tr>
+      <th scope="row">INST_SIRETDIF</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+								    <tr>
+      <th scope="row">INST_FRNONLIE</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">88,5</td>
+    </tr>
+								    <tr>
+      <th scope="row">INST_CLIPpena</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">92%</td>
+    </tr>
+	<tr>
+	      <th scope="row">INST_CLIPMARINE</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+	<tr>
+		      <th scope="row">INST_ALLEGRO</th>
+      <td>325</td>
+      <td>7</td>
+      <td>1821</td>
+	  <td class="td-pourcentage">98,42%</td>
+    </tr>
+		<tr class="tr-total-background">
+		      <th scope="row">TOTAL</th>
+      <td>48605</td>
+      <td>5144</td>
+      <td>413690</td>
+	  <td class="td-pourcentage">82,8%</td>
+    </tr>
+  </tbody>
+</table>
+                            </div>
+                        </div>
+                    </div>
+{% endif %}
+
+{% if admin_national == false %}
 <div class="row">
                         <div class="col-lg-12">
                             <div class="ibox">
@@ -187,6 +422,5 @@
                             </div>
                         </div>
                     </div>
-
-
+{% endif %}
 {% endblock %}

@@ -1,5 +1,8 @@
+
 {# templates/task/new.html.twig #}
+
 {% extends 'base.html.twig' %}
+
 {% block nav %}
 
 <li class="">
@@ -52,6 +55,58 @@
 						<a href="layouts.html" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Teléchargements résultat HNO</span></a>
 				</li>
 {% endblock %}
+
 {% block content %}
-{{ form(form) }}
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+
+    function ajaxLoad(agentSelector){
+    if( agentSelector.val() !=  null) {
+      $.ajax({
+          url: "{{ path('list_agent') }}",
+          type: "GET",
+          dataType: "JSON",
+          data: {
+              profilParentid: agentSelector.val()
+          },
+          success: function (agents) {
+              var profilagencesSelect = $("#profil_agences");
+
+              // Remove current options
+              profilagencesSelect.html('');
+              $.each(agents, function (key, agent) {
+
+                  profilagencesSelect.append('<div class="form-check"><input type="checkbox" id="profil_agences_' + agent.id + '" name="profil[agences][]" class="form-check-input" value="' + agent.id + '">'
+  +'<label class="form-check-label" for="profil_agences_' + agent.id + '">' + agent.agence_lib + '</label></div>');
+              });
+          },
+          error: function (err) {
+              alert("An error ocurred while loading data ...");
+          }
+    });
+    }
+
+
+    }
+    $( document ).ready(function() {
+    var agentSelector = $('#profil_profilParent');
+    ajaxLoad(agentSelector);
+    $('#profil_profilParent').change(function () {
+        var agentSelector = $(this);
+        ajaxLoad(agentSelector);
+    });
+});
+
+    </script>
 {% endblock %}

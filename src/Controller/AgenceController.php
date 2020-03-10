@@ -4,34 +4,33 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\DroitAccess;
+use App\Entity\Agence;
 use Symfony\Component\HttpFoundation\Request;
-use App\Form\DroitAccessType;
+use App\Form\AgenceType;
 
-class DroitAccessController extends AbstractController
+class AgenceController extends AbstractController
 {
 
-	/**
-     * @Route("/add/droit_access", name="add_droit_access")
+  /**
+     * @Route("/add/agence", name="add_agence")
      */
-   public function addDroitAccess(Request $request) {
+   public function addRole(Request $request) {
         // 1) build the form
-        $droit_access = new DroitAccess();
-        $form = $this->createForm(DroitAccessType::class, $droit_access);
+        $agence = new Agence();
+        $form = $this->createForm(AgenceType::class, $agence);
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($droit_access);
+            $entityManager->persist($agence);
             $entityManager->flush();
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
             $this->addFlash('success', 'Votre compte à bien été enregistré.');
             //return $this->redirectToRoute('login');
         }
-        return $this->render('droit_access/index.html.twig', ['form' => $form->createView(), 'mainNavRegistration' => true, 'title' => 'Ajouter Droit_Access']);
+        return $this->render('role/index.html.twig', ['form' => $form->createView(), 'mainNavRegistration' => true, 'title' => 'Ajouter Role']);
     }
-
 
 }

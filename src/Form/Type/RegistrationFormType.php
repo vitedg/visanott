@@ -18,7 +18,10 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Entity\Role;
+use App\Entity\Profil;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 
 class RegistrationFormType extends AbstractType
 {
@@ -45,11 +48,30 @@ class RegistrationFormType extends AbstractType
             ->add('username', null, array('label' => 'Username', 'translation_domain' => 'FOSUserBundle'))
 			->add('name', null, array('label' => 'Nom', 'translation_domain' => 'FOSUserBundle'))
 			->add('last_name', null, array('label' => 'Prenom', 'translation_domain' => 'FOSUserBundle'))
+      ->add('profil',EntityType::class, [
+      'class' => Profil::class,
+      'choice_label' => function ($profil) {
+        return $profil->getProfilLib();
+      }])
+
 			->add('role',EntityType::class, [
     'class' => Role::class,
     'choice_label' => function ($role) {
         return $role->getRoleLib();
 		}])
+/*
+    ->add('roles',ChoiceType::class,[
+      'choices'=>[
+        'ADMIN' => 'ROLE_ADMIN',
+        'AGENT' => 'ROLE_AGENT',
+        'IMPORT' => 'ROLE_IMPORT',
+      ],
+      'multiple'=> true,
+      'expanded'=>true
+    ])
+    */
+
+
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'options' => array(
@@ -58,6 +80,7 @@ class RegistrationFormType extends AbstractType
                         'autocomplete' => 'new-password',
                     ),
                 ),
+
                 'first_options' => array('label' => 'form.password'),
                 'second_options' => array('label' => 'form.password_confirmation'),
                 'invalid_message' => 'fos_user.password.mismatch',

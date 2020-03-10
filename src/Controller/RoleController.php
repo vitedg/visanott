@@ -11,9 +11,9 @@ use App\Entity\DroitAccess;
 
 class RoleController extends AbstractController
 {
-	
+
 	/**
-     * @Route("/add/role", name="add_droit_access")
+     * @Route("/add/role", name="add_role")
      */
    public function addRole(Request $request) {
         // 1) build the form

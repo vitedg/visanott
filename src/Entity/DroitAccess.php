@@ -43,25 +43,27 @@ class DroitAccess
         $this->roles = new ArrayCollection();
     }
 
-    /*
+
 	public function toString() : ?string
          	{
-         		if (( $this->droit_import == 0) && ($this -> droit_admin == 0))
+         		if (( $this->droit_import == 0) && ($this -> droit_admin == 0) && ($this -> admin_national == 0))
          		{
          			return ("Traitement Des Anomalies ");
-         		}else if(( $this->droit_import == 1) && ($this -> droit_admin == 0) )
+         		}else if(( $this->droit_import == 1) && ($this -> droit_admin == 0)  && ($this -> admin_national == 0))
          		{
          			return ("Import");
-         		}else if(( $this->droit_import == 0) && ($this -> droit_admin == 1) )
+         		}else if(( $this->droit_import == 0) && ($this -> droit_admin == 1) && ($this -> admin_national == 0) )
          		{
          			return ("Admin");
-         		}else if(( $this->droit_import == 1) && ($this -> droit_admin == 1) )
+         		}else if(( $this->droit_import == 1) && ($this -> droit_admin == 1) && ($this -> admin_national == 0) )
          		{
          			return ("Droit Import,Droit Admin");
+         		}else if($this -> admin_national == 1 )
+         		{
+         			return ("Admin National");
          		}
          	}
-     * 
-     */
+
 
     public function getId(): ?int
     {

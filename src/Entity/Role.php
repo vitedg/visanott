@@ -44,6 +44,7 @@ class Role
         return $this->id;
     }
 
+
     public function getRoleLib(): ?string
     {
         return $this->role_lib;
